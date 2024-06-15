@@ -25,12 +25,23 @@ public class GradeStatistics {
 
     private static int[] getScoresArray() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the scores with spaces: ");
-        String input = scanner.nextLine();
-        String[] arrangedScores = input.split(" ");
-        int[] scores = new int[arrangedScores.length];
-        for (int i = 0; i < arrangedScores.length; i++) {
-            scores[i] = Integer.parseInt(arrangedScores[i]);
+
+        int[] scores = {};
+        boolean validInput = false;
+
+        while (!validInput) {
+            System.out.print("Enter the scores with spaces: ");
+            String input = scanner.nextLine();
+            String[] arrangedScores = input.split(" ");
+            scores = new int[arrangedScores.length];
+            try {
+                for (int i = 0; i < arrangedScores.length; i++) {
+                    scores[i] = Integer.parseInt(arrangedScores[i]);
+                }
+                validInput = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Entered a non-numeric value. Please enter integers separated by spaces.");
+            }
         }
         scanner.close();
         return scores;
