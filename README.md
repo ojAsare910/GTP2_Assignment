@@ -1,2 +1,2 @@
 # DSA.Java
-Data Structure and Algorithms with Java
+GTP2_Assignment with Java
